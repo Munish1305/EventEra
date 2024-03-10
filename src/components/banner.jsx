@@ -7,82 +7,156 @@ import location from '../assets/images/location_red.svg'
 import rupee from '../assets/images/rupee_red.svg';
 import artist from '../assets/images/artist.jpeg'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-export default function banner(){
-    return(
-        <div className="mx-8 text-red-500">
-            <div className="mb-8">
-                <a href='google.com' className='flex text-xl font-bold'>
-                    <img src={Back} alt='back' className="pr-4 w-6"></img>
-                    Back
-                </a>
-            </div>
-            <div className="mb-8">
-                <div className="content-center">
-                    <img src={a3} alt="banner" className="rounded-2xl w-full h-full border-transparent border-r-5 object-cover" style={{height:"486px"}}></img>
-                </div>
-            </div>
-
-            <div className="p-3 border rounded-2xl mb-8 hover:border-red-500">
-                <h5 className="2xl:text-2xl text-xl pb-3 text-red-700 font-semibold">More details: Music Event</h5>
-                <p className="2xl:xl text-lg pb-3 leading-5 font-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                <div className="flex text-sm pb-6 2xl:text-base">
-                    <p className="flex 2xl:pr-4 pr-2">
-                        <img src={call} alt="calender"></img>
-                        <span className="p-2">3rd of feb 2024</span>
-                    </p>
-                    <p className="flex 2xl:pr-4 pr-2">
-                        <img src={clock} alt="time"></img>
-                        <span className="p-2">6:00pm</span>
-                    </p>
-                    <p className="flex 2xl:pr-4 pr-2">
-                        <img src={location} alt="location"></img>
-                        <span className="p-2">Ahmedabad</span>
-                    </p>
-                </div>
-                <div className="flex">
-                    <p className="flex 2xl:pr-4 pr-2 mr-8 items-center">
-                        <img src={rupee} alt="location"></img>
-                        <span className="2xl:text-2xl text-xl p-2 font-semibold">2000</span>
-                    </p>
-                    <a href="google.com" className="text-base px-6 py-3 border-2 rounded-full font-semibold hover:bg-red-500 hover:text-white">Book Now</a>
-                </div>
-            </div>
-            <div className="p-3 border rounded-2xl mb-8 hover:border-red-500">
-                <h5 className="2xl:text-2xl text-xl pb-6 text-red-700 font-semibold">Artist</h5>
-                <div className="block lg:flex justify-between p-3">
-                    <div className="flex pr-10 lg:mb-3">
-                        <div>
-                            <img src={artist} alt="artist" className="rounded-full max-w-40 h-40"></img>
-                        </div>
-                        <div className="p-8">
-                            <h3 className="2xl:text-4xl font-semibold xl:3xl pb-2">John Smith</h3>
-                            <h4 className="2xl:text-4xl xl:3xl ">Musician</h4>
-                        </div>
-                    </div>
-                    
-                    <div className="w-9/12 my-auto ">
-                        <p className="break-words 2xl:text-2xl xl:text-xl">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div className="p-3 border rounded-2xl mb-8 hover:border-red-500">
-                <h5 className="2xl:text-2xl text-xl pb-6 text-red-700 font-semibold">Location</h5>
-                <div className="block p-3 mx-auto">
-                <Map google={this.props.google} zoom={14}>
-                
-                    <Marker onClick={this.onMarkerClick}
-                            name={'Current location'} />
-
-                    <InfoWindow onClose={this.onInfoWindowClose}>
-                        <div>
-                        <h1>{this.state.selectedPlace.name}</h1>
-                        </div>
-                    </InfoWindow>
-                    </Map>
-                </div>
-            </div>
+export default function profile() {
+  const eventDivStyle = {
+    height: '620px', // adjust height as needed
+    overflow: 'auto', // or 'scroll' for always visible scrollbar
+  };
+  return (
+    <div className='font-poppins'>
+      <div className='px-7 py-4 flex items-center bg-slate-200 '>
+        <div className='pe-6 w-56'>
+          <img src={Logo} alt='Logo'></img>
         </div>
-    )
+        <div className=' max-w-full relative'>
+          <form className='flex rounded-full border border-transparent hover:border-red-500 hover:border '>
+            <img src={Search_icon} alt='search' className='pl-4 mr-4 absolute bottom-4'></img>
+            <input type='text' placeholder='Search' className='max-w-full px-16 py-4 bg-white h-max text-2xl border rounded-full focus-visible:outline-none'></input>
+          </form>
+        </div>
+      </div>
+      <div className='px-7 h-full text-red-500'>
+        <div className='flex'>
+          <div className='border-r-2 flex flex-col justify-between pb-10'>
+            <div className=' text-center pt-9'>
+              <a href='google.com' className='pl-4 pb-2 flex text-xl font-bold hover:under'>
+                <img src={Back} alt='back' className='pr-5'></img>
+                User Profile
+              </a>
+                <div className="pr-7 pt-8">
+                  <ul className=' text-left text-xl font-semibold tabs'>
+                    <li className='py-3 px-12 mb-3 border border-transparent rounded-full hover:bg-red-500 hover:text-white cursor-pointer active' data-target="#Profile">Profile</li>
+                    <li className='py-3 px-12 mb-3 border border-transparent rounded-full hover:bg-red-500 hover:text-white cursor-pointer' data-target="#attended">Attended Event</li>
+                  </ul>
+                </div>
+              </div>
+              <div className='pl-7'>
+                <button className='py-3 px-12 mb-3 border font-semibold rounded-full hover:bg-red-500 hover:text-white cursor-pointer'>
+                  Logout
+                </button>
+              </div>
+          </div>
+
+          <div  className='ml-8 p-8 border-2 mt-28 rounded-xl w-2/6 mb-72 panel' id="Profile">
+            <div className='justify-center p-8 '>
+                <div className=' justify-between mb-20'>
+                  <h3 className='text-2xl font-bold'>Account Details</h3>
+                  {/* <button className='text-2xl flex border-b-2 border-b-transparent hover:border-b-2 hover:border-b-red-500'><img src={edit} alt='edit' className='justify-center pr-3 w-10 h-9 '></img>Edit</button> */}
+                </div>
+                <div>
+                  <form>
+                  <div className='items-center font-bold py-3 mb-7' >
+                    <label for="name" className='text-2xl py-3 w-48'>Name</label>
+                    <input type='text' id='name' class='text-red-500 h-10 py-3 border-b text-xl w-full focus-visible:outline-none' placeholder='Komal Mehra' ></input>
+                  </div>
+                  <div className='items-center font-bold py-3 mb-7' >
+                    <label for="Email" className='text-2xl py-3 w-48'>Email</label>
+                    <input type='email' id='Email' class='text-red-500 h-10 py-3 border-b text-xl w-full focus-visible:outline-none' placeholder='komal@gmail.com' ></input>
+                  </div>
+                  <div className='items-center font-bold py-3 mb-7' >
+                    <label for="mobile" className='text-2xl py-3 w-48'>Mobile No</label>
+                    <input type='number' id='mobile' maxLength="10" class='text-red-500 h-10 py-3 border-b text-xl w-full focus-visible:outline-none' placeholder='635123663' ></input>
+                  </div>
+                  <div className='text-center mb-13 text-red-500 '>
+                    <input type='submit' id='submit' class='py-3 px-7 text-xl font-semibold border-2 rounded-full focus-visible:outline-none  hover:bg-red-500 hover:text-white' value='Save'></input> 
+                  </div>
+                  </form>
+                </div>
+            </div>
+          </div>
+          <div className='text-red-700 ml-8 p-8 mb-72 active' style={eventDivStyle}id="attended">
+            <div className='font-semibold text-xl mb-8'>
+              <h3>Past 6 months</h3>
+            </div>
+            <div className='flex mb-6 border p-6 rounded-xl'>
+                <div className='w-44 pr-13 me-14'>
+                  <img src={a2} alt='post2' className='object-cover h-full'></img>
+                </div>
+                <div className='text-left'>
+                  <h3 className='text-xl font-bold pb-7'>Technical Event</h3>
+                  <span className='py-2 mb-2 flex text-lg items-start'><img src={time} alt='time' className='pr-4 items-start'></img>3rd Feb 2024 | 6:00 P.M.
+                  </span>
+                  <span className='py-2 mb-2 flex text-lg'><img src={location} alt='location' className='pr-4'></img>HK Mall, Naranpura, Ahmedabad
+                  </span>
+                  <spam className="flex justify-between">
+                    <span className='flex py-2 pr-64 mb-2 text-xl'><img src={rupee} alt='rupee' className='pr-4 pl-2'></img>2000</span>
+                    <button className="flex rounded-full border-2 items-center py-3 px-4 text-lg">
+                    <img src={download} alt="download" className='pr-3'></img>
+                      Download Ticket</button>
+                  </spam>
+                </div>
+            </div>
+            <div className='flex mb-6 border p-6 rounded-xl'>
+                <div className='w-44 pr-13 me-14'>
+                  <img src={a2} alt='post2' className='object-cover h-full'></img>
+                </div>
+                <div className='text-left'>
+                  <h3 className='text-xl font-bold pb-7'>Technical Event</h3>
+                  <span className='py-2 mb-2 flex text-lg items-start'><img src={time} alt='time' className='pr-4 items-start'></img>3rd Feb 2024 | 6:00 P.M.
+                  </span>
+                  <span className='py-2 mb-2 flex text-lg'><img src={location} alt='location' className='pr-4'></img>HK Mall, Naranpura, Ahmedabad
+                  </span>
+                  <spam className="flex justify-between">
+                    <span className='flex py-2 pr-64 mb-2 text-xl'><img src={rupee} alt='rupee' className='pr-4 pl-2'></img>2000</span>
+                    <button className="flex rounded-full border-2 items-center py-3 px-4 text-lg">
+                    <img src={download} alt="download" className='pr-3'></img>
+                      Download Ticket</button>
+                  </spam>
+                </div>
+            </div>
+            <div className='flex mb-6 border p-6 rounded-xl'>
+                <div className='w-44 pr-13 me-14'>
+                  <img src={a2} alt='post2' className='object-cover h-full'></img>
+                </div>
+                <div className='text-left'>
+                  <h3 className='text-xl font-bold pb-7'>Technical Event</h3>
+                  <span className='py-2 mb-2 flex text-lg items-start'><img src={time} alt='time' className='pr-4 items-start'></img>3rd Feb 2024 | 6:00 P.M.
+                  </span>
+                  <span className='py-2 mb-2 flex text-lg'><img src={location} alt='location' className='pr-4'></img>HK Mall, Naranpura, Ahmedabad
+                  </span>
+                  <spam className="flex justify-between">
+                    <span className='flex py-2 pr-64 mb-2 text-xl'><img src={rupee} alt='rupee' className='pr-4 pl-2'></img>2000</span>
+                    <button className="flex rounded-full border-2 items-center py-3 px-4 text-lg">
+                    <img src={download} alt="download" className='pr-3'></img>
+                      Download Ticket</button>
+                  </spam>
+                </div>
+            </div>
+            <div className='flex mb-6 border p-6 rounded-xl'>
+                <div className='w-44 pr-13 me-14'>
+                  <img src={a2} alt='post2' className='object-cover h-full'></img>
+                </div>
+                <div className='text-left'>
+                  <h3 className='text-xl font-bold pb-7'>Technical Event</h3>
+                  <span className='py-2 mb-2 flex text-lg items-start'><img src={time} alt='time' className='pr-4 items-start'></img>3rd Feb 2024 | 6:00 P.M.
+                  </span>
+                  <span className='py-2 mb-2 flex text-lg'><img src={location} alt='location' className='pr-4'></img>HK Mall, Naranpura, Ahmedabad
+                  </span>
+                  <spam className="flex justify-between">
+                    <span className='flex py-2 pr-64 mb-2 text-xl'><img src={rupee} alt='rupee' className='pr-4 pl-2'></img>2000</span>
+                    <button className="flex rounded-full border-2 items-center py-3 px-4 text-lg">
+                    <img src={download} alt="download" className='pr-3'></img>
+                      Download Ticket</button>
+                  </spam>
+                </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        
+      {/* <div className='w-full bg-red-500 text-white flex justify-center py-8 mt-24'>
+        <img src={copyright} alt='copyright'></img> <p>Copyright 2024. All Rights Reserved</p>
+      </div> */}
+    </div>
+  )
 }
